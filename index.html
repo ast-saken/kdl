@@ -70,6 +70,21 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    :root {
+	--chat--color-primary: #333;
+	--chat--color-primary-shade-50: #333;
+	--chat--color-primary-shade-100: #333;
+	--chat--color-secondary: #333;
+	--chat--color-secondary-shade-50: #333;
+	--chat--color-white: #ffffff;
+	--chat--color-light: #f2f4f8;
+	--chat--color-light-shade-50: #e6e9f1;
+	--chat--color-light-shade-100: #c2c5cc;
+	--chat--color-medium: #d2d4d9;
+	--chat--color-dark: #101330;
+	--chat--color-disabled: #777980;
+	--chat--color-typing: #404040;
+    }    
     footer {
       background: #004080;
       color: white;
@@ -132,7 +147,26 @@
     <button type="submit">Отправить</button>
   </form>
 </section>
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
+	createChat({
+		webhookUrl: 'https://primary-production-09f1.up.railway.app/webhook/53e4125b-9d8d-4237-9735-8c4796ff7aee/chat',
+		initialMessages: [
+		'Привет! 👋',
+		'Я ИИ ассистент КДЛ. Чем могу помочь?'
+	],
+		i18n: {
+		en: {
+			title: 'КДЛ! 👋',
+			subtitle: "Начните общение. Мы готовы помочь вам 24/7.",
+			footer: '',
+			getStarted: 'Новый разговор',
+			inputPlaceholder: 'Введите ваш вопрос..',
+		},
+	},
+	});
+</script>
 <footer>
   <p>&copy; 2025 Клинико-диагностическая лаборатория. Все права защищены.</p>
 </footer>
